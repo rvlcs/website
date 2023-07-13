@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="msapplication-square150x150logo" content="/assets/ms-icon-150x150.png">
+    <meta name="msapplication-config" content="/assets/browserconfig.xml">
+    <meta name="msapplication-TileColor" content="#000000">
+    <meta name="theme-color" content="#003380">
+    <title>RVLCS</title>
+
+    <link rel="icon" sizes="192x192" href="/assets/favicon-192x192.png">
+    <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+    <link rel="shortcut icon" href="/assets/favicon.ico">
+    <link rel="stylesheet" href="~/css/site.css" />
+    <link rel="stylesheet" href="~/fonts/fonts.css" />
+    <link rel="stylesheet" href="~/lib/animate/animate.min.css" />
+</head>
+<body>
+    <header class="header" id="header">
+        <div class="container">
+            <figure class="logo animated fadeInDown delay-07s">
+                <a asp-area="" asp-page="Index"><img src="~/img/logo.png" alt="logo" /></a>
+            </figure>
+            <h1 class="animated fadeInDown delay-07s">Welcome to RVLCS</h1>
+            <ul class="we-create animated fadeInUp delay-1s">
+                <li>We are an expert and consultancy services company for attorneys representing banks and/or borrowers.</li>
+            </ul>
+            <a class="btn btn-success animated fadeInUp delay-1s serviceLink" asp-area="" asp-page="Index" asp-fragment="service">Get Started</a>
+        </div>
+    </header>
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main-nav" aria-controls="main-nav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="main-nav">
+            <ul class="navbar-nav mx-auto">
+                <li class="nav-item">
+                    <a class="nav-link" asp-area="" asp-page="Index" asp-fragment="header">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" asp-area="" asp-page="Index" asp-fragment="service">Services</a>
+                </li>
+                <li class="nav-item">
+                    <img class="nav-link" src="~/img/small-logo.png" alt="logo" />
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" asp-area="" asp-page="Index" asp-fragment="team">Team</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" asp-area="" asp-page="Index" asp-fragment="contact">Contact</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="main-section" id="service">
+        <div class="container">
+            <h2>Services</h2>
+            <h6>We offer extensive knowledge and expertise in the following areas.</h6>
+            <div class="serviceList">
+                <div class="card-columns">
+                    @foreach (var service in Model.Services) {
+                        <div class="card mb-3">
+                            <div class="row no-gutters">
+                                <div class="col-md-4">
+                                    <img class="card-img" src="@service.Image" alt="fair lending" />
+                                </div>
+                                <div class="col-md-8">
+                                    <div class="card-body">
+                                        <h3 class="card-title">@service.Title</h3>
+                                    </div>
+                                    <ul class="list-group list-group-flush">
+                                        @foreach (var listItem in service.List) {
+                                            <li class="list-group-item">@listItem</li>
+                                        }
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="jumbotron jumbotron-fluid stats">
+        <div class="container">
+            <p class="display-4">CV · RESUMES · PRIOR CASES</p>
+            <p class="lead">Available by request or engagement</p>
+        </div>
+    </section>
+
+    <section class="main-section" id="team">
+        <div class="container">
+            <h2>Team</h2>
+            <h6>Take a closer look at our amazing team.</h6>
+            <div class="d-flex justify-content-center wow fadeInUp">
+                <div class="team-member">
+                    <img src="~/img/randall-lowell.jpg" alt="Randall Lowell" />
+                    <h3>Randall Lowell</h3>
+                    <span>Chief Principal Officer | Expert Witness | Consultant</span>
+                    <p>Randall brings 29+ years of Mortgage Banking, Real Estate Brokerage, Bank Auditing, Mortgage Best Practices, and Non-Profit Best Practices.</p>
+                </div>
+                <div class="team-member">
+                    <img src="~/img/diego-herrera.jpg" alt="Diego Hererra" />
+                    <h3>Diego Hererra</h3>
+                    <span>Principal Officer | Consultant</span>
+                    <p>Diego brings 18+ years of Mortgage Banking, Real Estate Brokerage, Bank Auditing, and Mortgage Practices.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="main-section" id="contact">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 col-sm-7 wow fadeInLeft delay-02s">
+                    <div class="row contact-info-box">
+                        <div class="col-sm-3">
+                            <h3><i class="fas fa-map-marked"></i> Address:</h3>
+                        </div>
+                        <div class="col-sm-9">
+                            <span>819 14th Way<br />Edmonds, WA 98037</span>
+                        </div>
+                    </div>
+                    <div class="row contact-info-box">
+                        <div class="col-sm-3">
+                            <h3><i class="fa fa-pencil-alt"></i> Email:</h3>
+                        </div>
+                        <div class="col-sm-9">
+                            <span>info@rvlcs.com</span>
+                        </div>
+                    </div>
+                    <div class="row contact-info-box">
+                        <div class="col-sm-3">
+                            <h3><i class="fa fa-phone"></i> Phone:</h3>
+                        </div>
+                        <div class="col-sm-9">
+                            <span>206-200-2517</span>
+                        </div>
+                    </div>
+                    <div class="row contact-info-box">
+                        <div class="col-sm-3">
+                            <h3><i class="far fa-clock"></i> Hours:</h3>
+                        </div>
+                        <div class="col-sm-9">
+                            <span>
+                                <strong>Monday - Thursday:</strong> 8am - 6pm<br />
+                                <strong>Friday:</strong> 8am - 5pm<br />
+                                <strong>Saturday - Sunday:</strong> By appointment only
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-sm-5 wow fadeInUp delay-05s d-none">
+                    <form action="" method="post" role="form" class="contactForm">
+                        <div class="form-group">
+                            <input type="text" name="name" class="form-control input-text" id="name" placeholder="Your Name" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
+                            <div class="validation"></div>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" name="email" class="form-control input-text" id="email" placeholder="Your Email" data-rule="email" data-msg="Please enter a valid email" />
+                            <div class="validation"></div>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" name="subject" class="form-control input-text" id="subject" placeholder="Subject" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
+                            <div class="validation"></div>
+                        </div>
+                        <div class="form-group">
+                            <textarea name="message" rows="5" class="form-control input-text text-area" id="message" placeholder="Message" data-rule="required" data-msg="Please write something for us"></textarea>
+                            <div class="validation"></div>
+                        </div>
+                        <div class="text-center">
+                            <button type="submit" class="btn btn-success btn-lg">Send Message</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="logo">
+                <a asp-area="" asp-page="Index" asp-fragment="header"><img src="~/img/logo.png" alt="" /></a>
+            </div>
+            <span class="copyright">&copy; RVLCS. All Rights Reserved</span>
+        </div>
+    </footer>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/jquery-easing/jquery.easing.min.js"></script>
+    <script src="~/lib/wow/wow.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/lib/fontawesome-free/js/all.min.js"></script>
+    <script src="~/js/site.js"></script>
+    <script type="text/javascript">
+        $(document).ready(() => {
+            RVLCS.scrollToFixed('#main-nav');
+            var wow = new WOW();
+            wow.init();
+        });
+    </script>
+</body>
+</html>
